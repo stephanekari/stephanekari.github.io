@@ -1,154 +1,181 @@
-const viewport = document.querySelector("#deck");
-const track = document.querySelector("#track");
-const sections = [...track.querySelectorAll(":scope > section")];
+const sections = [...document.querySelectorAll("main > section")];
 const tabs = [...document.querySelectorAll("[data-go]")];
 const nowLabel = document.querySelector("#now-label");
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-let index = 0;
-let drag = null;
+let hashReady = !location.hash;
 
-document.documentElement.classList.add("is-deck");
-
-function clamp(n) {
-  return Math.max(0, Math.min(sections.length - 1, n));
-}
-
-function go(next) {
-  index = clamp(next);
-  track.style.transition = "";
-  track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
-  sections.forEach((section, i) => {
-    const on = i === index;
-    section.classList.toggle("is-active", on);
-    section.toggleAttribute("inert", !on);
-  });
-  tabs.forEach((tab, i) => {
-    const on = i === index;
+function activate(section) {
+  const id = section.id;
+  sections.forEach((node) => node.classList.toggle("is-active", node === section));
+  tabs.forEach((tab) => {
+    const on = tab.dataset.go === id;
     tab.classList.toggle("is-on", on);
     if (on) tab.setAttribute("aria-current", "true");
     else tab.removeAttribute("aria-current");
   });
-  const name = sections[index].dataset.name || "";
-  if (nowLabel) nowLabel.textContent = name;
-  const id = sections[index].id;
-  if (location.hash !== `#${id}`) {
-    history.replaceState(null, "", `#${id}`);
-  }
+  if (nowLabel) nowLabel.textContent = section.dataset.name || "";
+  if (hashReady && location.hash !== `#${id}`) history.replaceState(null, "", `#${id}`);
 }
 
-function startFromHash() {
-  const id = location.hash.replace("#", "");
-  const found = sections.findIndex((section) => section.id === id);
-  go(found >= 0 ? found : 0);
-}
+const ratios = new Map();
+const watcher = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      ratios.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+    });
+    let best = null;
+    let bestRatio = 0;
+    sections.forEach((section) => {
+      const ratio = ratios.get(section) || 0;
+      if (ratio > bestRatio) {
+        bestRatio = ratio;
+        best = section;
+      }
+    });
+    if (best) activate(best);
+  },
+  { threshold: [0.2, 0.35, 0.5, 0.7] },
+);
+sections.forEach((section) => watcher.observe(section));
 
 tabs.forEach((tab) => {
-  tab.addEventListener("click", () => go(Number(tab.dataset.go)));
+  tab.addEventListener("click", () => {
+    const section = document.getElementById(tab.dataset.go);
+    if (!section) return;
+    section.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+  });
 });
 
-document.addEventListener("click", (event) => {
-  const link = event.target.closest("a[href^='#']");
-  if (!link) return;
-  const id = link.getAttribute("href").slice(1);
-  const found = sections.findIndex((section) => section.id === id);
-  if (found < 0) return;
-  event.preventDefault();
-  go(found);
-});
-
-window.addEventListener("keydown", (event) => {
-  if (event.metaKey || event.ctrlKey || event.altKey) return;
-  if (event.target.closest("input, textarea, select")) return;
-  if (event.key === "ArrowRight") {
-    event.preventDefault();
-    go(index + 1);
-  } else if (event.key === "ArrowLeft") {
-    event.preventDefault();
-    go(index - 1);
-  }
-});
-
-viewport.addEventListener("pointerdown", (event) => {
-  if (event.button !== 0) return;
-  if (event.target.closest(".record, a, button, input, textarea, iframe")) return;
-  drag = {
-    id: event.pointerId,
-    x: event.clientX,
-    y: event.clientY,
-    horiz: null,
-  };
-});
-
-viewport.addEventListener("pointermove", (event) => {
-  if (!drag || event.pointerId !== drag.id) return;
-  const dx = event.clientX - drag.x;
-  const dy = event.clientY - drag.y;
-  if (drag.horiz === null) {
-    if (Math.hypot(dx, dy) < 10) return;
-    drag.horiz = Math.abs(dx) > Math.abs(dy) * 1.2;
-    if (!drag.horiz) {
-      drag = null;
-      return;
-    }
-    viewport.setPointerCapture(event.pointerId);
-  }
-  event.preventDefault();
-  track.style.transition = "none";
-  const px = -index * viewport.clientWidth + dx;
-  track.style.transform = `translate3d(${px}px, 0, 0)`;
-  drag.dx = dx;
-});
-
-function endDrag(event) {
-  if (!drag || event.pointerId !== drag.id) return;
-  const dx = drag.dx || 0;
-  const horiz = drag.horiz;
-  drag = null;
-  if (horiz && Math.abs(dx) > 56) go(index + (dx < 0 ? 1 : -1));
-  else go(index);
+function noon(iso) {
+  const date = new Date(`${iso}T12:00:00`);
+  return Number.isNaN(date.getTime()) ? null : date;
 }
 
-viewport.addEventListener("pointerup", endDrag);
-viewport.addEventListener("pointercancel", endDrag);
+function daysUntil(iso) {
+  const target = noon(iso);
+  if (!target) return null;
+  const today = new Date();
+  today.setHours(12, 0, 0, 0);
+  return Math.round((target - today) / 86400000);
+}
 
-let wheelLock = false;
-viewport.addEventListener(
-  "wheel",
-  (event) => {
-    const section = sections[index];
-    const mostlyY = Math.abs(event.deltaY) >= Math.abs(event.deltaX);
-    if (mostlyY && section) {
-      const down = event.deltaY > 0;
-      const canDown =
-        section.scrollTop + section.clientHeight < section.scrollHeight - 4;
-      const canUp = section.scrollTop > 4;
-      if ((down && canDown) || (!down && canUp)) return;
+function whenLabel(days) {
+  if (days > 1) return `Dans ${days} jours`;
+  if (days === 1) return "Demain";
+  if (days === 0) return "Aujourd’hui";
+  return "Joué";
+}
+
+document.querySelectorAll("[data-date]").forEach((node) => {
+  const days = daysUntil(node.dataset.date);
+  if (days === null) return;
+  const past = days < 0;
+  node.classList.toggle("is-past", past);
+  const badge = node.querySelector(":scope .badge");
+  if (badge) badge.textContent = past ? "Joué" : days === 0 ? "Ce soir" : "À venir";
+  if (past) {
+    const button = node.querySelector(".btn");
+    if (button && button.textContent.trim().startsWith("Billets")) {
+      button.textContent = "Page Shotgun";
+      button.classList.add("btn-light");
     }
+  }
+});
+
+document.querySelectorAll("[data-countdown]").forEach((node) => {
+  const days = daysUntil(node.dataset.countdown);
+  if (days === null) return;
+  node.textContent = whenLabel(days);
+});
+
+const cassette = document.querySelector("#cassette");
+if (cassette) {
+  let rotX = -18;
+  let rotY = -34;
+  let vx = 0;
+  let vy = reduce ? 0 : 0.12;
+  let holding = false;
+  let lastX = 0;
+  let lastY = 0;
+
+  const paint = () => {
+    cassette.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  };
+  paint();
+
+  const frame = () => {
+    if (!holding) {
+      rotY += vy;
+      rotX += vx;
+      vx *= 0.94;
+      vy *= 0.96;
+      if (rotX < -32) rotX = -32;
+      if (rotX > 28) rotX = 28;
+      if (!reduce && Math.abs(vy) < 0.08 && Math.abs(vx) < 0.04) vy = 0.12;
+      paint();
+    }
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+
+  cassette.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    holding = true;
+    vx = 0;
+    vy = 0;
+    lastX = event.clientX;
+    lastY = event.clientY;
+    cassette.setPointerCapture(event.pointerId);
+    cassette.classList.add("is-holding");
+  });
+
+  cassette.addEventListener("pointermove", (event) => {
+    if (!holding) return;
+    const dx = event.clientX - lastX;
+    const dy = event.clientY - lastY;
+    lastX = event.clientX;
+    lastY = event.clientY;
+    vy = dx * 0.45;
+    vx = -dy * 0.28;
+    rotY += vy;
+    rotX = Math.max(-32, Math.min(28, rotX + vx));
+    paint();
+  });
+
+  const release = () => {
+    if (!holding) return;
+    holding = false;
+    cassette.classList.remove("is-holding");
+  };
+  cassette.addEventListener("pointerup", release);
+  cassette.addEventListener("pointercancel", release);
+
+  cassette.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") rotY += 16;
+    else if (event.key === "ArrowLeft") rotY -= 16;
+    else if (event.key === "ArrowUp") rotX = Math.max(-32, rotX - 8);
+    else if (event.key === "ArrowDown") rotX = Math.min(28, rotX + 8);
+    else return;
     event.preventDefault();
-    if (wheelLock) return;
-    const delta = mostlyY ? event.deltaY : event.deltaX;
-    if (Math.abs(delta) < 8) return;
-    wheelLock = true;
-    go(index + (delta > 0 ? 1 : -1));
-    window.setTimeout(() => {
-      wheelLock = false;
-    }, 520);
-  },
-  { passive: false },
-);
+    vx = 0;
+    vy = 0;
+    paint();
+  });
+}
 
 const record = document.querySelector(".record");
 if (record) {
-  let angle = 0;
+  let angle = -18;
   let lastX = 0;
   let velocity = 0;
   let holding = false;
   let frame = 0;
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const paint = () => {
     record.style.transform = `rotate(${angle}deg)`;
   };
+  paint();
 
   const coast = () => {
     if (holding || Math.abs(velocity) < 0.05) {
@@ -191,47 +218,10 @@ if (record) {
   record.addEventListener("dragstart", (event) => event.preventDefault());
 }
 
-function noon(iso) {
-  const date = new Date(`${iso}T12:00:00`);
-  return Number.isNaN(date.getTime()) ? null : date;
+if (location.hash) {
+  const target = document.querySelector(location.hash);
+  if (target) target.scrollIntoView();
+  requestAnimationFrame(() => {
+    hashReady = true;
+  });
 }
-
-function daysUntil(iso) {
-  const target = noon(iso);
-  if (!target) return null;
-  const today = new Date();
-  today.setHours(12, 0, 0, 0);
-  return Math.round((target - today) / 86400000);
-}
-
-function whenLabel(days) {
-  if (days > 1) return `Dans ${days} jours`;
-  if (days === 1) return "Demain";
-  if (days === 0) return "Aujourd’hui";
-  return "Joué";
-}
-
-document.querySelectorAll("[data-date]").forEach((node) => {
-  const days = daysUntil(node.dataset.date);
-  if (days === null) return;
-  const past = days < 0;
-  node.classList.toggle("is-past", past);
-  const badge = node.querySelector(":scope > .badge, :scope > .ticket-body > .badge");
-  if (badge) badge.textContent = past ? "Joué" : days === 0 ? "Ce soir" : "À venir";
-  if (past) {
-    const button = node.querySelector(".btn");
-    if (button && button.textContent.trim().startsWith("Billets")) {
-      button.textContent = "Page Shotgun";
-      button.classList.add("btn-light");
-    }
-  }
-});
-
-document.querySelectorAll("[data-countdown]").forEach((node) => {
-  const days = daysUntil(node.dataset.countdown);
-  if (days === null) return;
-  node.textContent = whenLabel(days);
-});
-
-startFromHash();
-window.addEventListener("hashchange", startFromHash);

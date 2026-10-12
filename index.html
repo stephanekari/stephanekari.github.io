@@ -6,9 +6,9 @@
     <title>Tate Ammonia</title>
     <meta
       name="description"
-      content="Tate Ammonia, groupe parisien de pop, disco et French touch. Dates, billets, vinyle Sherwood Green et cassette Make It Right."
+      content="Tate Ammonia, groupe parisien. Dates, billets, cassette Make It Right, vinyle Sherwood Green, live au Club K7."
     />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <a class="skip" href="#deck">Aller au contenu</a>
+    <a class="skip" href="#nuit">Aller au contenu</a>
 
     <header class="bar">
       <a class="mark" href="#nuit">Tate Ammonia</a>
@@ -26,90 +26,66 @@
       <a class="bar-link" href="#dates">Billets</a>
     </header>
 
-    <div class="viewport" id="deck">
-      <div class="track" id="track">
-        <section id="nuit" data-name="Nuit" class="panel panel-night">
-          <div class="panel-inner hero-copy">
-            <p class="kicker">Paris · depuis 2020</p>
-            <h1>Tate<br />Ammonia</h1>
-            <p class="lede">
-              Quatre voix. Pop rock des années 70, disco et French touch.
-              Un groupe d’amis qui fait danser.
+    <main id="deck">
+      <section id="nuit" data-name="Nuit" class="panel panel-night">
+        <div class="panel-inner hero-copy">
+          <p class="kicker">Paris · depuis 2020</p>
+          <h1>Tate<br />Ammonia</h1>
+          <p class="lede">
+            Quatre voix. Pop rock des années 70, disco et French touch.
+            Un groupe d’amis qui fait danser.
+          </p>
+          <a class="chip" href="#dates" data-date="2026-10-21">
+            <span class="badge">À venir</span>
+            <span>21 oct. · La Dame de Canton</span>
+            <span class="countdown" data-countdown="2026-10-21"></span>
+          </a>
+        </div>
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <p>
+              <span>Make it right</span><span class="r">Make it right</span>
+              <span>Make it right</span><span class="r">Make it right</span>
+              <span>Make it right</span><span class="r">Make it right</span>
+              <span>Make it right</span><span class="r">Make it right</span>
             </p>
-            <a class="chip" href="#dates" data-date="2026-10-21">
-              <span class="badge">À venir</span>
-              <span>21 oct. · La Dame de Canton</span>
-              <span class="countdown" data-countdown="2026-10-21"></span>
-            </a>
+            <p>
+              <span>Make it right</span><span class="r">Make it right</span>
+              <span>Make it right</span><span class="r">Make it right</span>
+              <span>Make it right</span><span class="r">Make it right</span>
+              <span>Make it right</span><span class="r">Make it right</span>
+            </p>
           </div>
-          <div class="marquee" aria-hidden="true">
-            <div class="marquee-track">
-              <p>
-                <span>Make it right</span><span class="r">Make it right</span>
-                <span>Make it right</span><span class="r">Make it right</span>
-                <span>Make it right</span><span class="r">Make it right</span>
-                <span>Make it right</span><span class="r">Make it right</span>
-              </p>
-              <p>
-                <span>Make it right</span><span class="r">Make it right</span>
-                <span>Make it right</span><span class="r">Make it right</span>
-                <span>Make it right</span><span class="r">Make it right</span>
-                <span>Make it right</span><span class="r">Make it right</span>
-              </p>
-            </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="bande" data-name="Bande" class="panel panel-day">
-          <div class="panel-inner split">
-            <figure class="portrait">
-              <img
-                src="/media/band.jpg"
-                alt="Les quatre membres de Tate Ammonia, allongés dans l’herbe sèche au soleil"
-                width="900"
-                height="900"
-              />
-            </figure>
-            <div>
-              <p class="kicker">Le groupe</p>
-              <h2>Guirec, Gaspard, Olivier et Victor.</h2>
-              <p>
-                Formé en 2020 par Guirec et Gaspard, le groupe s’est élargi
-                d’Olivier et Victor en 2025. Le live, c’est un froncement de
-                sourcils, des hochements de tête synchronisés, et le reste du
-                corps qui suit.
-              </p>
-              <p>
-                Premier EP, <em>Sherwood Green</em>, le 6 décembre 2024.
-                Single <em>Make It Right</em> en 2026, clip tourné de nuit par
-                Tess Jacob.
-              </p>
-              <p class="influences">
-                Parcels · ABBA · Billy Joel · Phoenix · Donna Summer
-              </p>
-            </div>
-          </div>
-        </section>
+      <section id="dates" data-name="Billets" class="chapter chapter-bill">
+        <div class="bill">
+          <figure class="bill-still">
+            <img
+              src="%BASE_URL%media/night.jpg"
+              alt="Les quatre de Tate Ammonia marchent de nuit dans l’herbe, un bidon rouge à la main. Make It Right en rouge au-dessus d’eux."
+              width="1600"
+              height="898"
+            />
+          </figure>
+          <div class="bill-copy">
+            <p class="kicker">Billetterie</p>
+            <h2>Sur scène</h2>
 
-        <section id="dates" data-name="Dates" class="panel panel-ink">
-          <div class="panel-inner">
-            <p class="kicker">Sur scène</p>
-            <h2>Dates</h2>
-
-            <article class="ticket" data-date="2026-10-21">
-              <div class="ticket-body">
-                <p class="badge">À venir</p>
-                <p class="ticket-date">
-                  <time datetime="2026-10-21">Mercredi 21 octobre 2026</time>
-                  <span class="countdown" data-countdown="2026-10-21"></span>
-                </p>
-                <h3>La Dame de Canton</h3>
-                <p>
-                  Avec Ligne 10 et Capitaine Sky. Tate Ammonia à 21h.
-                  Port de la Gare, face à la BnF, Paris 13e. De 20h à 23h.
-                </p>
-                <p class="price">Dès 9,29 € · annoncé sur la billetterie</p>
-              </div>
+            <article class="show" data-date="2026-10-21">
+              <p class="badge">À venir</p>
+              <p class="countdown" data-countdown="2026-10-21"></p>
+              <h3>La Dame de Canton</h3>
+              <p class="ticket-date">
+                <time datetime="2026-10-21">Mercredi 21 octobre</time>
+                <span>21h · de 20h à 23h</span>
+              </p>
+              <p>
+                Avec Ligne 10 et Capitaine Sky.
+                Port de la Gare, face à la BnF, Paris 13e.
+              </p>
+              <p class="price">Dès 9,29 € · annoncé sur la billetterie</p>
               <div class="ticket-actions">
                 <a
                   class="btn"
@@ -188,192 +164,201 @@
               </li>
             </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="disques" data-name="Disques" class="panel panel-shop">
-          <div class="panel-inner">
-            <p class="kicker">Objets</p>
-            <h2>Vinyle et cassette</h2>
-            <div class="shop">
-              <article class="product">
-                <div class="stage">
-                  <img
-                    class="record"
-                    src="/media/vinyl.png"
-                    alt="Vinyle noir Sherwood Green, étiquette verte Tate Ammonia"
-                    width="1200"
-                    height="1200"
-                    draggable="false"
-                  />
-                  <p class="hint">Glisse le disque pour le tourner</p>
-                </div>
-                <div class="product-copy">
-                  <p class="kicker">Vinyle · France</p>
-                  <h3>Sherwood Green EP</h3>
-                  <p>Sorti le 6 décembre 2024.</p>
-                  <a
-                    class="btn"
-                    href="https://www.paypal.com/ncp/payment/DJHTYBMA6JCAU"
-                    target="_blank"
-                    rel="noopener"
-                    >Acheter le vinyle</a
-                  >
-                  <ol class="sides">
-                    <li>
-                      <span>A</span>
-                      <ul>
-                        <li>Weakly Shine Alone <small>5:10</small></li>
-                        <li>Beyond the Pale <small>4:27</small></li>
-                        <li>Something Written <small>3:19</small></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <span>B</span>
-                      <ul>
-                        <li>Gone to Dream <small>4:33</small></li>
-                        <li>Pulse <small>8:40</small></li>
-                      </ul>
-                    </li>
-                  </ol>
-                </div>
-              </article>
+      <section id="k7" data-name="K7" class="chapter chapter-k7">
+        <div class="k7-copy">
+          <p class="kicker">Objet</p>
+          <h2>Make It<br />Right</h2>
+          <p>
+            Le single de 2026, en cassette faite main. Aluminium froissé,
+            bleu d’un côté, rouge de l’autre. Fabriquée par Tess Jacob.
+          </p>
+          <a
+            class="btn"
+            href="https://www.paypal.com/ncp/payment/7TH58RD2RLDTQ"
+            target="_blank"
+            rel="noopener"
+            >Acheter la cassette</a
+          >
+        </div>
 
-              <article class="product">
-                <div class="stage stage-foil">
-                  <img
-                    src="/media/foil.jpg"
-                    alt="Cassettes Make It Right sous blister aluminium, titres répétés en bleu et en rouge"
-                    width="800"
-                    height="1000"
-                  />
-                </div>
-                <div class="product-copy">
-                  <p class="kicker">Cassette</p>
-                  <h3>Make It Right</h3>
-                  <p>
-                    Le single de 2026, en cassette. Le même objet que sur la
-                    pochette : aluminium, bleu, rouge.
-                  </p>
-                  <a
-                    class="btn btn-light"
-                    href="https://www.paypal.com/ncp/payment/7TH58RD2RLDTQ"
-                    target="_blank"
-                    rel="noopener"
-                    >Acheter la cassette</a
-                  >
-                </div>
-              </article>
+        <div class="k7-scene">
+          <img
+            class="k7-burst"
+            src="%BASE_URL%media/burst.jpg"
+            alt="Dans la nuit, un nuage de cassettes suspendu, et un membre du groupe en blouson de cuir"
+            width="1100"
+            height="1100"
+          />
+          <img
+            class="k7-print"
+            src="%BASE_URL%media/foil.jpg"
+            alt="Cassettes Make It Right sous blister aluminium, le titre répété en bleu et en rouge"
+            width="800"
+            height="1000"
+          />
+          <div class="k7-stage">
+            <div class="k7-shadow" aria-hidden="true"></div>
+            <div
+              class="cassette"
+              id="cassette"
+              tabindex="0"
+              role="img"
+              aria-label="Cassette Make It Right en aluminium. Glisse pour la tourner."
+            >
+              <div class="cf cf-front"></div>
+              <div class="cf cf-back"></div>
+              <div class="cf cf-left"></div>
+              <div class="cf cf-right"></div>
+              <div class="cf cf-top"></div>
+              <div class="cf cf-bottom"></div>
             </div>
           </div>
-        </section>
+          <p class="hint">Tourne la cassette</p>
+        </div>
+      </section>
 
-        <section id="ecoute" data-name="Écoute" class="panel panel-listen">
-          <div class="panel-inner listen">
-            <div>
-              <p class="kicker">Plateformes</p>
-              <h2>Écoute</h2>
-              <p class="lede-sm">
-                Le son est chez eux. Ici, on ouvre la bonne porte.
-              </p>
-              <ul class="tracks">
-                <li>
-                  <a
-                    href="https://open.spotify.com/album/6hmmSFQ3wuazTg1CY4lyLO"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <span>Make It Right</span>
-                    <small>Single · 2026 · Spotify</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://youtu.be/rkmEttVpPo0" target="_blank" rel="noopener">
-                    <span>Make It Right</span>
-                    <small>Clip · YouTube</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://youtu.be/W1h01OPoTMc" target="_blank" rel="noopener">
-                    <span>Make It Right</span>
-                    <small>Live au Club K7 · YouTube</small>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://open.spotify.com/artist/5ZxmCOkJVTxaCfsClQT1Qw"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <span>Sherwood Green</span>
-                    <small>EP · Spotify</small>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.deezer.com/fr/album/672367861"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <span>Sherwood Green</span>
-                    <small>EP · Deezer</small>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://music.apple.com/fr/album/sherwood-green-ep/1780555723"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    <span>Sherwood Green</span>
-                    <small>EP · Apple Music</small>
-                  </a>
-                </li>
-              </ul>
-              <div class="embed">
-                <iframe
-                  title="Make It Right sur Spotify"
-                  src="https://open.spotify.com/embed/album/6hmmSFQ3wuazTg1CY4lyLO?utm_source=generator&theme=0"
-                  height="152"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <p class="contact">
-                <a href="mailto:tateammoniacontact@gmail.com"
-                  >tateammoniacontact@gmail.com</a
-                >
-              </p>
-              <p class="socials">
-                <a href="https://www.instagram.com/tateammonia/" target="_blank" rel="noopener"
-                  >Instagram</a
-                >
-                <a href="https://www.youtube.com/@tateammonia" target="_blank" rel="noopener"
-                  >YouTube</a
-                >
-                <a href="https://linktr.ee/tateammonia" target="_blank" rel="noopener"
-                  >Linktree</a
-                >
-              </p>
-            </div>
-            <aside class="listen-side">
+      <section id="vinyle" data-name="Vinyle" class="chapter chapter-vinyl">
+        <div class="vinyl-copy">
+          <p class="kicker">Vinyle · France</p>
+          <h2>Sherwood Green</h2>
+          <p>L’EP, sorti le 6 décembre 2024. Cinq titres. Les faces sont imprimées sur la pochette.</p>
+          <a
+            class="btn"
+            href="https://www.paypal.com/ncp/payment/DJHTYBMA6JCAU"
+            target="_blank"
+            rel="noopener"
+            >Acheter le vinyle</a
+          >
+          <div class="vinyl-stage">
+            <div class="vinyl-shadow" aria-hidden="true"></div>
+            <div class="tilt">
               <img
-                src="/media/burst.jpg"
-                alt="Nuage de cassettes sur fond noir, pochette de Make It Right"
-                width="800"
-                height="800"
+                class="record"
+                src="%BASE_URL%media/vinyl.png"
+                alt="Vinyle noir Sherwood Green, étiquette verte Tate Ammonia"
+                width="1200"
+                height="1200"
+                draggable="false"
               />
-            </aside>
+              <div class="sheen" aria-hidden="true"></div>
+            </div>
+            <p class="hint">Glisse le disque</p>
           </div>
-        </section>
-      </div>
-    </div>
+        </div>
+        <figure class="sleeve">
+          <img
+            src="%BASE_URL%media/sleeve.jpg"
+            alt="Pochette ouverte de Sherwood Green. Trois membres sous une couverture dans l’herbe, le disque noir sorti, étiquette verte Tate Ammonia."
+            width="1729"
+            height="1095"
+          />
+        </figure>
+      </section>
+
+      <section id="live" data-name="Live" class="chapter chapter-live">
+        <div class="live-grid">
+          <figure class="live-still">
+            <a href="https://youtu.be/W1h01OPoTMc" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/live.jpg"
+                alt="Tate Ammonia joue Make It Right au Club K7. Murs de cassettes, guitare, batterie, chant et clavier."
+                width="1280"
+                height="720"
+              />
+            </a>
+          </figure>
+          <div class="live-copy">
+            <p class="kicker">Au compte</p>
+            <h2>Live session</h2>
+            <p>
+              Make It Right, filmée au Club K7 à Paris. Léa et l’équipe du shop
+              ont reçu le groupe. Image, montage et étalonnage : Tess Jacob.
+            </p>
+            <div class="ticket-actions">
+              <a class="btn" href="https://youtu.be/W1h01OPoTMc" target="_blank" rel="noopener"
+                >Voir la session</a
+              >
+              <a class="text-link" href="https://youtu.be/rkmEttVpPo0" target="_blank" rel="noopener"
+                >Le clip</a
+              >
+            </div>
+            <ul class="posts">
+              <li>
+                <a
+                  href="https://www.instagram.com/tateammonia/reel/DcBJ_YwRWHB/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <time datetime="2026-08-14">14 août 2026</time>
+                  <span>La session est en ligne</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/tateammonia/p/DbqTSUdAtOM/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <time datetime="2026-08-05">5 août 2026</time>
+                  <span>La cassette, faite main</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/tateammonia/p/DZDKMwsAgGk/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <time datetime="2026-06-01">1 juin 2026</time>
+                  <span>Les crédits du clip</span>
+                </a>
+              </li>
+            </ul>
+            <div class="closer">
+              <img
+                src="%BASE_URL%media/band.jpg"
+                alt="Les quatre membres de Tate Ammonia, allongés dans l’herbe au soleil"
+                width="1100"
+                height="1100"
+              />
+              <div>
+                <p>Guirec, Gaspard, Olivier, Victor.</p>
+                <p class="socials">
+                  <a href="https://www.instagram.com/tateammonia/" target="_blank" rel="noopener">Instagram</a>
+                  <a href="https://www.youtube.com/@tateammonia" target="_blank" rel="noopener">YouTube</a>
+                  <a href="https://open.spotify.com/artist/5ZxmCOkJVTxaCfsClQT1Qw" target="_blank" rel="noopener">Spotify</a>
+                  <a href="https://www.deezer.com/fr/album/672367861" target="_blank" rel="noopener">Deezer</a>
+                  <a href="https://music.apple.com/fr/album/sherwood-green-ep/1780555723" target="_blank" rel="noopener">Apple&nbsp;Music</a>
+                  <a href="https://linktr.ee/tateammonia" target="_blank" rel="noopener">Linktree</a>
+                </p>
+                <p class="contact">
+                  <a href="mailto:tateammoniacontact@gmail.com">tateammoniacontact@gmail.com</a>
+                </p>
+              </div>
+            </div>
+            <div class="embed">
+              <iframe
+                title="Make It Right sur Spotify"
+                src="https://open.spotify.com/embed/album/6hmmSFQ3wuazTg1CY4lyLO?utm_source=generator&theme=0"
+                height="152"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <nav class="sleeves" aria-label="Chapitres">
-      <button type="button" data-go="0">Nuit</button>
-      <button type="button" data-go="1">Bande</button>
-      <button type="button" data-go="2">Dates</button>
-      <button type="button" data-go="3">Disques</button>
-      <button type="button" data-go="4">Écoute</button>
+      <button type="button" data-go="nuit">Nuit</button>
+      <button type="button" data-go="dates">Billets</button>
+      <button type="button" data-go="k7">K7</button>
+      <button type="button" data-go="vinyle">Vinyle</button>
+      <button type="button" data-go="live">Live</button>
     </nav>
 
     <div class="grain" aria-hidden="true"></div>

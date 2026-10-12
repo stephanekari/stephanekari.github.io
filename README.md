@@ -1,6 +1,6 @@
 # Tate Ammonia
 
-Site du groupe. On le balaye, comme une pile de pochettes : nuit, bande, dates, disques, écoute.
+Site du groupe. La nuit tient la première page. On descend ensuite vers la billetterie, la cassette, le vinyle, puis la live session.
 
 Les billets partent vers la billetterie du concert (Shotgun pour La Dame de Canton). Le vinyle et la cassette partent vers les pages PayPal déjà utilisées par le groupe.
 
@@ -12,6 +12,8 @@ npm run dev
 ```
 
 Puis ouvrir l’adresse affichée par Vite.
+
+Le site public est sur https://stephanekari.github.io/ tant qu’il n’y a pas de nom de domaine. Pour en brancher un, l’ajouter dans les réglages GitHub Pages du dépôt.
 
 ```bash
 npm run build
@@ -26,7 +28,7 @@ Dans `index.html`, chaque concert a `data-date="AAAA-MM-JJ"`. Le badge « À ven
 
 ## Visuels
 
-`public/media/` reprend les visuels déjà publiés par le groupe (portrait, nuit du clip, pochette cassettes, aluminium, vinyle, herbe de la page Sherwood Green). Pour en remplacer un, garder le même nom de fichier.
+`public/media/` reprend les visuels déjà publiés par le groupe (portrait, nuit du clip, aluminium, faces du pack, pochette du vinyle, disque, live au Club K7). Pour en remplacer un, garder le même nom de fichier.
 
 ## Direction
 

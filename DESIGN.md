@@ -35,11 +35,11 @@ Le rouge est le seul appel à l’action. Une date passée perd ce rouge.
 
 ## Forme
 
-Coins presque droits. Le rayon n’apparaît que sur le lecteur Spotify, qui n’est pas à nous. Pas d’ombres portées de carte. Le disque a une ombre portée parce que c’est un objet sur l’herbe.
+Coins presque droits. Le rayon n’apparaît que sur le lecteur Spotify, qui n’est pas à nous. Pas d’ombres portées de carte. Le disque et le pack ont une ombre parce que ce sont des objets.
 
 ## Mouvement
 
-Le site est une pile horizontale. Doigt, trackpad, molette et flèches du clavier. Si un chapitre déborde, la molette le fait défiler avant de passer au suivant. Le vinyle se tourne au doigt, avec une inertie coupée si « réduire les animations » est activé. La bande aluminium défile en boucle, et s’arrête dans le même cas.
+La première page reste plein écran. On descend ensuite : billetterie, cassette, vinyle, live. La cassette se tourne au doigt, le vinyle aussi, avec une inertie coupée si « réduire les animations » est activé. La bande aluminium défile en boucle, et s’arrête dans le même cas.
 
 ## Ce qu’on ne fait pas
 
