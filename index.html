@@ -6,8 +6,9 @@
     <title>Tate Ammonia</title>
     <meta
       name="description"
-      content="Tate Ammonia, groupe parisien. Dates, billets, cassette Make It Right, vinyle Sherwood Green, live au Club K7."
+      content="Tate Ammonia, groupe parisien. Dates, billets, photos de concert, cassette Make It Right, vinyle Sherwood Green, live au Club K7."
     />
+    <meta name="theme-color" content="#070708" />
     <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,9 +16,10 @@
       href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,560;1,9..144,660&family=Outfit:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" as="image" href="%BASE_URL%media/cover.jpg" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body>
+  <body data-world="night">
     <a class="skip" href="#nuit">Aller au contenu</a>
 
     <header class="bar">
@@ -27,7 +29,7 @@
     </header>
 
     <main id="deck">
-      <section id="nuit" data-name="Nuit" class="panel panel-night">
+      <section id="nuit" data-name="Nuit" data-world="night" class="panel panel-night">
         <div class="panel-inner hero-copy">
           <p class="kicker">Paris · depuis 2020</p>
           <h1>Tate<br />Ammonia</h1>
@@ -38,6 +40,7 @@
             <span class="countdown" data-countdown="2026-10-21"></span>
           </a>
         </div>
+        <p class="hero-credit">Make It Right, pochette de Tess Jacob</p>
         <div class="marquee" aria-hidden="true">
           <div class="marquee-track">
             <p>
@@ -56,15 +59,16 @@
         </div>
       </section>
 
-      <section id="dates" data-name="Billets" class="chapter chapter-bill">
+      <section id="dates" data-name="Billets" data-world="night" class="chapter chapter-bill">
         <div class="bill">
           <figure class="bill-still">
             <img
-              src="%BASE_URL%media/night.jpg"
-              alt="Les quatre de Tate Ammonia marchent de nuit dans l’herbe, un bidon rouge à la main. Make It Right en rouge au-dessus d’eux."
-              width="1600"
-              height="898"
+              src="%BASE_URL%media/stage.jpg"
+              alt="Tate Ammonia joue à la Péniche Antipode, la salle pleine chante devant la scène."
+              width="2000"
+              height="1334"
             />
+            <figcaption>Péniche Antipode · 21 mai 2026</figcaption>
           </figure>
           <div class="bill-copy">
             <p class="kicker">Billetterie</p>
@@ -109,6 +113,16 @@
             </article>
 
             <ul class="past">
+              <li data-date="2026-09-18">
+                <time datetime="2026-09-18">18 sept. 2026</time>
+                <span>La Javelle · Paris · avec Etage70 et King Tulipe</span>
+                <a
+                  href="https://www.instagram.com/tateammonia/p/Dd8bLvHgvGP/"
+                  target="_blank"
+                  rel="noopener"
+                  >Photos</a
+                >
+              </li>
               <li data-date="2026-06-20">
                 <time datetime="2026-06-20">20 juin 2026</time>
                 <span>Offlénies · Viroflay</span>
@@ -164,7 +178,118 @@
         </div>
       </section>
 
-      <section id="k7" data-name="K7" class="chapter chapter-k7">
+      <section id="photos" data-name="Photos" data-world="night" class="chapter chapter-photos">
+        <div class="photos-head">
+          <div>
+            <p class="kicker">Au compte Instagram</p>
+            <h2>En concert</h2>
+          </div>
+          <div class="reel-nav">
+            <button type="button" class="reel-btn" data-reel="-1" aria-label="Photo précédente">←</button>
+            <button type="button" class="reel-btn" data-reel="1" aria-label="Photo suivante">→</button>
+          </div>
+        </div>
+        <ul class="reel" id="reel" tabindex="0" aria-label="Photos de concert, à faire défiler">
+          <li class="shot shot-wide">
+            <a href="https://www.instagram.com/tateammonia/p/DYwOSTrAhcf/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/antipode.jpg"
+                alt="Trois membres du groupe face au public, deux guitares et un tambourin, sous les projecteurs violets"
+                width="1400"
+                height="933"
+                loading="lazy"
+              />
+            </a>
+            <p>Péniche Antipode · mai 2026</p>
+          </li>
+          <li class="shot">
+            <a href="https://www.instagram.com/tateammonia/p/DbySOmqgkg1/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/viroflay.jpg"
+                alt="Le chanteur guitariste en t-shirt I love Paris sous la tente des Offlénies"
+                width="1120"
+                height="1400"
+                loading="lazy"
+              />
+            </a>
+            <p>Offlénies, Viroflay · juin 2026</p>
+          </li>
+          <li class="shot">
+            <a href="https://www.instagram.com/tateammonia/p/Da4_hYKghLQ/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/truskel.jpg"
+                alt="Le batteur en débardeur blanc chante au micro, baguette levée"
+                width="1120"
+                height="1400"
+                loading="lazy"
+              />
+            </a>
+            <p>Truskel · juin 2026</p>
+          </li>
+          <li class="shot shot-wide">
+            <a href="https://www.instagram.com/tateammonia/p/DYwOSTrAhcf/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/antipode-smoke.jpg"
+                alt="Le batteur torse nu derrière les cymbales, dans la fumée de scène"
+                width="1400"
+                height="933"
+                loading="lazy"
+              />
+            </a>
+            <p>Péniche Antipode · mai 2026</p>
+          </li>
+          <li class="shot">
+            <a href="https://www.instagram.com/tateammonia/p/DW_hjMiAlR1/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/supersonic-26.jpg"
+                alt="Un guitariste en veste à carreaux et pantalon de survêtement bleu, la tête baissée sur sa guitare"
+                width="1120"
+                height="1400"
+                loading="lazy"
+              />
+            </a>
+            <p>Supersonic · avril 2026</p>
+          </li>
+          <li class="shot">
+            <a href="https://www.instagram.com/tateammonia/p/DPjieAXAsov/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/sunset.jpg"
+                alt="Clavier et guitare en plein air, lunettes de soleil, ciel bleu de fin de journée"
+                width="1120"
+                height="1400"
+                loading="lazy"
+              />
+            </a>
+            <p>Sunset on stage · 2025 · photo Tess Jacob</p>
+          </li>
+          <li class="shot">
+            <a href="https://www.instagram.com/tateammonia/p/DLc30ETiDu7/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/supersonic-25.jpg"
+                alt="Clavier et basse côte à côte sous les lumières orange du Supersonic"
+                width="1120"
+                height="1400"
+                loading="lazy"
+              />
+            </a>
+            <p>Supersonic · juin 2025 · photo Tess Jacob</p>
+          </li>
+          <li class="shot">
+            <a href="https://www.instagram.com/tateammonia/p/DKhlgG2IUsB/" target="_blank" rel="noopener">
+              <img
+                src="%BASE_URL%media/scene/disquaires.jpg"
+                alt="Le guitariste en chemise jaune, éclairé de près"
+                width="1056"
+                height="1400"
+                loading="lazy"
+              />
+            </a>
+            <p>Les Disquaires · 2025 · photo Tess Jacob</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="k7" data-name="K7" data-world="night" class="chapter chapter-k7">
         <div class="k7-copy">
           <p class="kicker">Objet</p>
           <h2>Make It<br />Right</h2>
@@ -183,18 +308,12 @@
 
         <div class="k7-scene">
           <img
-            class="k7-burst"
-            src="%BASE_URL%media/burst.jpg"
-            alt="Dans la nuit, un nuage de cassettes suspendu, et un membre du groupe en blouson de cuir"
-            width="1100"
-            height="1100"
-          />
-          <img
             class="k7-print"
             src="%BASE_URL%media/foil.jpg"
-            alt="Cassettes Make It Right sous blister aluminium, le titre répété en bleu et en rouge"
-            width="800"
-            height="1000"
+            alt="Emballages en aluminium Make It Right, l’intérieur imprimé en bleu et en rouge"
+            width="1080"
+            height="1350"
+            loading="lazy"
           />
           <div class="k7-stage">
             <div class="k7-shadow" aria-hidden="true"></div>
@@ -215,13 +334,37 @@
           </div>
           <p class="hint">Tourne la cassette</p>
         </div>
+        <div class="k7-proofs">
+          <a href="https://www.instagram.com/tateammonia/p/DbqTSUdAtOM/" target="_blank" rel="noopener">
+            <img
+              src="%BASE_URL%media/k7-cards.jpg"
+              alt="Les deux jaquettes, bleue et rouge, dans leurs boîtiers transparents sur l’aluminium"
+              width="1080"
+              height="1350"
+              loading="lazy"
+            />
+          </a>
+          <a href="https://www.instagram.com/tateammonia/p/DbqTSUdAtOM/" target="_blank" rel="noopener">
+            <img
+              src="%BASE_URL%media/k7-tape.jpg"
+              alt="La cassette noire Make It Right, face 1, posée sur sa jaquette rouge"
+              width="1080"
+              height="1350"
+              loading="lazy"
+            />
+          </a>
+        </div>
       </section>
 
-      <section id="vinyle" data-name="Vinyle" class="chapter chapter-vinyl">
+      <section id="vinyle" data-name="Vinyle" data-world="day" class="chapter chapter-vinyl">
         <div class="vinyl-copy">
           <p class="kicker">Vinyle · France</p>
           <h2>Sherwood Green</h2>
-          <p>L’EP, sorti le 6 décembre 2024. Cinq titres. Les faces sont imprimées sur la pochette.</p>
+          <p>L’EP, sorti le 6 décembre 2024. Cinq titres, faits à la maison.</p>
+          <ol class="sides">
+            <li><span>Face A</span> Weakly Shine Alone · Beyond the Pale · Something Written</li>
+            <li><span>Face B</span> Gone to Dream · Pulse</li>
+          </ol>
           <a
             class="btn"
             href="https://www.paypal.com/ncp/payment/DJHTYBMA6JCAU"
@@ -229,33 +372,34 @@
             rel="noopener"
             >Acheter le vinyle</a
           >
-          <div class="vinyl-stage">
-            <div class="vinyl-shadow" aria-hidden="true"></div>
-            <div class="tilt">
-              <img
-                class="record"
-                src="%BASE_URL%media/vinyl.png"
-                alt="Vinyle noir Sherwood Green, étiquette verte Tate Ammonia"
-                width="1200"
-                height="1200"
-                draggable="false"
-              />
-              <div class="sheen" aria-hidden="true"></div>
-            </div>
-            <p class="hint">Glisse le disque</p>
-          </div>
+          <p class="credit">Recto Guirec Le Bigot · verso Tess Jacob et Eliot Japy</p>
         </div>
-        <figure class="sleeve">
+        <div class="vinyl-stage">
+          <div class="record-wrap">
+            <img
+              class="record"
+              src="%BASE_URL%media/vinyl.png"
+              alt="Vinyle noir Sherwood Green, étiquette verte Tate Ammonia"
+              width="1200"
+              height="1200"
+              draggable="false"
+              loading="lazy"
+            />
+            <div class="sheen" aria-hidden="true"></div>
+          </div>
           <img
+            class="sleeve"
             src="%BASE_URL%media/sleeve.jpg"
-            alt="Pochette ouverte de Sherwood Green. Trois membres sous une couverture dans l’herbe, le disque noir sorti, étiquette verte Tate Ammonia."
-            width="1729"
-            height="1095"
+            alt="Pochette de Sherwood Green : trois membres du groupe dans le jardin d’une maison blanche, une guitare à la main"
+            width="1440"
+            height="1440"
+            loading="lazy"
           />
-        </figure>
+          <p class="hint">Glisse le disque</p>
+        </div>
       </section>
 
-      <section id="live" data-name="Live" class="chapter chapter-live">
+      <section id="live" data-name="Live" data-world="night" class="chapter chapter-live">
         <div class="live-grid">
           <figure class="live-still">
             <a href="https://youtu.be/W1h01OPoTMc" target="_blank" rel="noopener">
@@ -264,6 +408,7 @@
                 alt="Tate Ammonia joue Make It Right au Club K7. Murs de cassettes, guitare, batterie, chant et clavier."
                 width="1280"
                 height="720"
+                loading="lazy"
               />
             </a>
           </figure>
@@ -314,28 +459,6 @@
                 </a>
               </li>
             </ul>
-            <div class="closer">
-              <img
-                src="%BASE_URL%media/band.jpg"
-                alt="Les quatre membres de Tate Ammonia, allongés dans l’herbe au soleil"
-                width="1100"
-                height="1100"
-              />
-              <div>
-                <p>Guirec, Gaspard, Olivier, Victor.</p>
-                <p class="socials">
-                  <a href="https://www.instagram.com/tateammonia/" target="_blank" rel="noopener">Instagram</a>
-                  <a href="https://www.youtube.com/@tateammonia" target="_blank" rel="noopener">YouTube</a>
-                  <a href="https://open.spotify.com/artist/5ZxmCOkJVTxaCfsClQT1Qw" target="_blank" rel="noopener">Spotify</a>
-                  <a href="https://www.deezer.com/fr/album/672367861" target="_blank" rel="noopener">Deezer</a>
-                  <a href="https://music.apple.com/fr/album/sherwood-green-ep/1780555723" target="_blank" rel="noopener">Apple&nbsp;Music</a>
-                  <a href="https://linktr.ee/tateammonia" target="_blank" rel="noopener">Linktree</a>
-                </p>
-                <p class="contact">
-                  <a href="mailto:tateammoniacontact@gmail.com">tateammoniacontact@gmail.com</a>
-                </p>
-              </div>
-            </div>
             <div class="embed">
               <iframe
                 title="Make It Right sur Spotify"
@@ -347,12 +470,39 @@
             </div>
           </div>
         </div>
+
+        <footer class="closer">
+          <img
+            src="%BASE_URL%media/band.jpg"
+            alt="Les quatre membres de Tate Ammonia serrés devant des feuillages, veste rose, veste en jean, veste à carreaux"
+            width="1280"
+            height="1600"
+            loading="lazy"
+          />
+          <div class="closer-copy">
+            <p class="kicker">Le groupe</p>
+            <p class="names">Guirec, Gaspard, Olivier, Victor.</p>
+            <p class="socials">
+              <a href="https://www.instagram.com/tateammonia/" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://www.youtube.com/@tateammonia" target="_blank" rel="noopener">YouTube</a>
+              <a href="https://www.facebook.com/TateAmmonia/" target="_blank" rel="noopener">Facebook</a>
+              <a href="https://open.spotify.com/artist/5ZxmCOkJVTxaCfsClQT1Qw" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://www.deezer.com/fr/album/672367861" target="_blank" rel="noopener">Deezer</a>
+              <a href="https://music.apple.com/fr/album/sherwood-green-ep/1780555723" target="_blank" rel="noopener">Apple&nbsp;Music</a>
+              <a href="https://linktr.ee/tateammonia" target="_blank" rel="noopener">Linktree</a>
+            </p>
+            <p class="contact">
+              <a href="mailto:tateammoniacontact@gmail.com">tateammoniacontact@gmail.com</a>
+            </p>
+          </div>
+        </footer>
       </section>
     </main>
 
     <nav class="sleeves" aria-label="Chapitres">
       <button type="button" data-go="nuit">Nuit</button>
       <button type="button" data-go="dates">Billets</button>
+      <button type="button" data-go="photos">Photos</button>
       <button type="button" data-go="k7">K7</button>
       <button type="button" data-go="vinyle">Vinyle</button>
       <button type="button" data-go="live">Live</button>

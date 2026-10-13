@@ -8,6 +8,8 @@ let hashReady = !location.hash;
 function activate(section) {
   const id = section.id;
   sections.forEach((node) => node.classList.toggle("is-active", node === section));
+  section.classList.add("was-seen");
+  document.body.dataset.world = section.dataset.world || "night";
   tabs.forEach((tab) => {
     const on = tab.dataset.go === id;
     tab.classList.toggle("is-on", on);
@@ -46,6 +48,21 @@ tabs.forEach((tab) => {
     section.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
   });
 });
+
+const reel = document.querySelector("#reel");
+if (reel) {
+  document.querySelectorAll("[data-reel]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const shots = [...reel.children];
+      const left = reel.scrollLeft;
+      const pad = parseFloat(getComputedStyle(reel).paddingLeft) || 0;
+      const step = Number(button.dataset.reel);
+      const current = shots.findIndex((shot) => shot.offsetLeft - pad >= left - 4);
+      const next = shots[Math.max(0, Math.min(shots.length - 1, (current < 0 ? shots.length - 1 : current) + step))];
+      reel.scrollTo({ left: next.offsetLeft - pad, behavior: reduce ? "auto" : "smooth" });
+    });
+  });
+}
 
 function noon(iso) {
   const date = new Date(`${iso}T12:00:00`);

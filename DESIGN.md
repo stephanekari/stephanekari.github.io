@@ -1,6 +1,6 @@
 # Tate Ammonia — direction
 
-Revu le 12 octobre 2026.
+Revu le 13 octobre 2026.
 
 Référence Instagram : [@tateammonia](https://www.instagram.com/tateammonia/), Linktree et la page vinyle Wix. Deux mondes cohabitent.
 
@@ -27,6 +27,8 @@ On garde ces deux règles. On ne reprend pas leur palette (violet, orange, finan
 
 Le rouge est le seul appel à l’action. Une date passée perd ce rouge.
 
+Le chapitre vinyle passe en jour : fond papier `#f3efe6`, encre `#17140f`, sur-titres et faces A/B en vert label. La barre du haut et les onglets suivent. Tout le reste reste de nuit.
+
 ## Typo
 
 - Affiche : Anton. Les titres *MAKE IT RIGHT* sont un grotesque ultra-gras, légèrement décalé de bleu, comme un repérage d’imprimerie.
@@ -39,7 +41,13 @@ Coins presque droits. Le rayon n’apparaît que sur le lecteur Spotify, qui n�
 
 ## Mouvement
 
-La première page reste plein écran. On descend ensuite : billetterie, cassette, vinyle, live. La cassette se tourne au doigt, le vinyle aussi, avec une inertie coupée si « réduire les animations » est activé. La bande aluminium défile en boucle, et s’arrête dans le même cas.
+La première page reste plein écran, sur la pochette de *Make It Right* (Tess Jacob). On descend ensuite : billetterie, photos de concert, cassette, vinyle, live, puis le groupe. Les photos défilent à l’horizontale, au doigt ou avec les flèches. Le disque sort de sa pochette quand on arrive sur le chapitre. La cassette se tourne au doigt, le vinyle aussi, avec une inertie coupée si « réduire les animations » est activé. La bande aluminium défile en boucle, et s’arrête dans le même cas.
+
+## Photos
+
+Toutes viennent des posts Instagram du groupe, dans la taille d’envoi d’origine (jusqu’à 3000 px), réduites à 2000 px au plus. Chaque photo de concert renvoie à son post. On crédite Tess Jacob seulement quand le post la crédite. Une photo envoyée trop petite (La Javelle, 720 px) ne va pas dans la galerie.
+
+La face bleue de la cassette 3D est la photo de l’emballage redressée. Aucune photo ne montre la face rouge en entier : elle reprend la face bleue, avec le texte passé au rouge.
 
 ## Ce qu’on ne fait pas
 

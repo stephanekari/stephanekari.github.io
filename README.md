@@ -28,7 +28,16 @@ Dans `index.html`, chaque concert a `data-date="AAAA-MM-JJ"`. Le badge « À ven
 
 ## Visuels
 
-`public/media/` reprend les visuels déjà publiés par le groupe (portrait, nuit du clip, aluminium, faces du pack, pochette du vinyle, disque, live au Club K7). Pour en remplacer un, garder le même nom de fichier.
+`public/media/` reprend les photos publiées sur Instagram par le groupe, dans leur meilleure taille :
+
+- `cover.jpg` : pochette de Make It Right, première page.
+- `stage.jpg` : la salle de la Péniche Antipode, billetterie.
+- `scene/` : photos de concert de la galerie.
+- `foil.jpg`, `k7-cards.jpg`, `k7-tape.jpg`, `pack-*.jpg` : la cassette et les faces de la cassette 3D.
+- `sleeve.jpg`, `vinyl.png` : pochette et disque de Sherwood Green.
+- `live.jpg`, `band.jpg` : live au Club K7, portrait du groupe.
+
+Pour remplacer une photo, garder le même nom de fichier. Pour en ajouter une à la galerie, copier un `<li class="shot">` dans `index.html` (`shot-wide` pour une photo en largeur) et pointer son lien vers le post.
 
 ## Direction
 
